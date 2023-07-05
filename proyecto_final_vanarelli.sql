@@ -51,7 +51,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto_final`.`Proveedores` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `cuit` INT NOT NULL,
+  `cuit` BIGINT NOT NULL,
   `razon_social` VARCHAR(50) NOT NULL,
   `direccion` VARCHAR(100) NOT NULL,
   `mail` VARCHAR(50) NOT NULL,
@@ -91,6 +91,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `proyecto_final`.`Productos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(100) NULL DEFAULT NULL,
+  `color` VARCHAR(30) NULL DEFAULT NULL,
   `id_categoria` INT NOT NULL,
   `fecha_compra` DATE NOT NULL,
   `precio_compra` FLOAT NOT NULL,

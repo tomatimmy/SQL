@@ -66,7 +66,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `proyecto_final`.`Orden_de_compra`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto_final`.`Orden_de_compra` (
-  `nro_oc` INT NOT NULL,
+  `nro_oc` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
   `cantidad` INT NOT NULL,
   `id_cliente` INT NOT NULL,
@@ -110,7 +110,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `proyecto_final`.`Ventas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto_final`.`Ventas` (
-  `nro_fc` INT NOT NULL,
+  `nro_fc` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
   `id_cliente` INT NOT NULL,
   `descuento` FLOAT NULL DEFAULT NULL,

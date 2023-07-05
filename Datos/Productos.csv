@@ -1,11 +1,11 @@
-"id";"descripcion";"color";"id_categoria";"fecha_compra";"precio_compra";"precio_venta";"stock"
-1;"Gorro trucker";"negro";4;"2023-05-01";8.9;17.8;10
-2;"Gorro baseball";"rojo";4;"2023-05-01";8.0;16.0;10
-3;"Gorro lana invierno";"blanco";4;"2023-05-01";5.4;10.8;5
-4;"Remera lisa";"blanco";3;"2023-05-01";13.34;26.68;15
-5;"Remera escote en V";"rojo";3;"2023-05-01";13.5;27.0;15
-6;"Remera manga larga";"negro";3;"2023-05-01";14.21;28.42;15
-7;"Buzo canguro";"negro";1;"2023-05-01";16.4;32.8;8
-8;"Buzo sweater";"blanco";1;"2023-05-01";16.4;32.8;8
-9;"Pantalon chino";"negro";5;"2023-05-01";21.99;43.98;12
-10;"Campera de jean";"azul";2;"2023-05-01";22.31;44.62;4
+"id";"descripcion";"color";"id_categoria";"fecha_compra";"precio_compra";"precio_venta";"stock";"id_proveedor"
+1;"Gorro trucker";"negro";4;"2023-05-01";8.9;17.8;10;2
+2;"Gorro baseball";"rojo";4;"2023-05-01";8.0;16.0;10;2
+3;"Gorro lana invierno";"blanco";4;"2023-05-01";5.4;10.8;5;2
+4;"Remera lisa";"blanco";3;"2023-05-01";13.34;26.68;15;1
+5;"Remera escote en V";"rojo";3;"2023-05-01";13.5;27.0;15;1
+6;"Remera manga larga";"negro";3;"2023-05-01";14.21;28.42;15;1
+7;"Buzo canguro";"negro";1;"2023-05-01";16.4;32.8;8;3
+8;"Buzo sweater";"blanco";1;"2023-05-01";16.4;32.8;8;3
+9;"Pantalon chino";"negro";5;"2023-05-01";21.99;43.98;12;3
+10;"Campera de jean";"azul";2;"2023-05-01";22.31;44.62;4;3

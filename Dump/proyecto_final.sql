@@ -232,7 +232,6 @@ CREATE TABLE `orden_de_compra_log` (
 
 LOCK TABLES `orden_de_compra_log` WRITE;
 /*!40000 ALTER TABLE `orden_de_compra_log` DISABLE KEYS */;
-INSERT INTO `orden_de_compra_log` VALUES (13,'2023-06-06',5,2,2,'nueva oc','root@localhost','2023-07-22','00:00:00');
 /*!40000 ALTER TABLE `orden_de_compra_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -671,4 +670,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-22 14:56:17
+-- Dump completed on 2023-07-22 15:26:08

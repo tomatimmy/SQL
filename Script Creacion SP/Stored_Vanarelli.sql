@@ -11,7 +11,7 @@ DELIMITER ;
 
 /*LLamado al SP:
 
-Se deben indicar 2 parametros, el nombre de la tabla que sera pivote de ordenamiento
+Se deben indicar 2 parametros, el nombre del campo que sera pivote de ordenamiento
 y el tipo de ordenamiento (ASC, DESC)
 Ejemplo: */
 

@@ -16,6 +16,39 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `baja_clientes_log`
+--
+
+DROP TABLE IF EXISTS `baja_clientes_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `baja_clientes_log` (
+  `id` int NOT NULL,
+  `dni` int DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `apellido` varchar(50) DEFAULT NULL,
+  `direccion` varchar(100) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `telefono` int DEFAULT NULL,
+  `accion` varchar(30) DEFAULT NULL,
+  `usuario_sistema` varchar(30) DEFAULT NULL,
+  `fecha_log` date DEFAULT NULL,
+  `hora_log` time DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `baja_clientes_log`
+--
+
+LOCK TABLES `baja_clientes_log` WRITE;
+/*!40000 ALTER TABLE `baja_clientes_log` DISABLE KEYS */;
+INSERT INTO `baja_clientes_log` VALUES (6,50505050,'mati','vanarelli','lalala','mati@vanarelli.com',123123123,'eliminado','root@localhost','2023-07-22','14:02:30');
+/*!40000 ALTER TABLE `baja_clientes_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Categorias`
 --
 
@@ -110,6 +143,21 @@ LOCK TABLES `Integra` WRITE;
 INSERT INTO `Integra` VALUES (1,1),(6,1),(9,1),(2,2),(4,2),(7,2),(3,3),(8,3),(5,4),(10,5);
 /*!40000 ALTER TABLE `Integra` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `Log_integra` AFTER INSERT ON `integra` FOR EACH ROW INSERT INTO integra(orden_de_compra_nro_oc, productos_id) values (new.orden_de_compra_nro_oc, new.productos_id) */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `Orden_de_compra`
@@ -138,7 +186,7 @@ CREATE TABLE `Orden_de_compra` (
 
 LOCK TABLES `Orden_de_compra` WRITE;
 /*!40000 ALTER TABLE `Orden_de_compra` DISABLE KEYS */;
-INSERT INTO `Orden_de_compra` VALUES (1,'2023-06-01',4,1,2),(2,'2023-06-02',5,1,2),(3,'2023-06-02',10,2,2),(4,'2023-06-04',3,3,3),(5,'2023-06-04',12,3,3),(6,'2023-06-04',5,3,3),(7,'2023-06-06',8,5,1),(8,'2023-06-06',3,4,1),(9,'2023-06-10',3,4,2),(10,'2023-06-10',2,4,2);
+INSERT INTO `Orden_de_compra` VALUES (1,'2023-06-01',4,1,2),(2,'2023-06-02',5,1,2),(3,'2023-06-02',10,2,2),(4,'2023-06-04',3,3,3),(5,'2023-06-04',12,3,3),(6,'2023-06-04',5,3,3),(7,'2023-06-06',8,5,1),(8,'2023-06-06',3,4,1),(9,'2023-06-10',3,4,2),(10,'2023-06-10',2,4,2),(12,'2023-10-10',3,1,2);
 /*!40000 ALTER TABLE `Orden_de_compra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,6 +204,37 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `nombre`,
  1 AS `apellido`*/;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `orden_de_compra_log`
+--
+
+DROP TABLE IF EXISTS `orden_de_compra_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orden_de_compra_log` (
+  `nro_oc` int NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
+  `id_cliente` int DEFAULT NULL,
+  `id_proveedor` int DEFAULT NULL,
+  `accion` varchar(30) DEFAULT NULL,
+  `usuario_sistema` varchar(30) DEFAULT NULL,
+  `fecha_log` date DEFAULT NULL,
+  `hora_log` time DEFAULT NULL,
+  PRIMARY KEY (`nro_oc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orden_de_compra_log`
+--
+
+LOCK TABLES `orden_de_compra_log` WRITE;
+/*!40000 ALTER TABLE `orden_de_compra_log` DISABLE KEYS */;
+INSERT INTO `orden_de_compra_log` VALUES (13,'2023-06-06',5,2,2,'nueva oc','root@localhost','2023-07-22','00:00:00');
+/*!40000 ALTER TABLE `orden_de_compra_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Temporary view structure for view `orden_de_compra_total`
@@ -360,6 +439,10 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping events for database 'proyecto_final'
+--
+
+--
 -- Dumping routines for database 'proyecto_final'
 --
 /*!50003 DROP FUNCTION IF EXISTS `obtener_datos` */;
@@ -378,27 +461,6 @@ BEGIN
     DECLARE nombre_y_apellido VARCHAR(100);
     SELECT CONCAT(nombre, ' ', apellido) INTO nombre_y_apellido FROM clientes WHERE id = p_id;
     RETURN nombre_y_apellido;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `obtener_mayor_stock` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `obtener_mayor_stock`(p_campo VARCHAR(100)) RETURNS int
-    NO SQL
-BEGIN
-    SET @consulta = CONCAT('SELECT MAX(', p_campo, ') FROM productos;');
-    RETURN @consulta;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -609,4 +671,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-12 21:07:44
+-- Dump completed on 2023-07-22 14:56:17

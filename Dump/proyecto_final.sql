@@ -44,7 +44,6 @@ CREATE TABLE `baja_clientes_log` (
 
 LOCK TABLES `baja_clientes_log` WRITE;
 /*!40000 ALTER TABLE `baja_clientes_log` DISABLE KEYS */;
-INSERT INTO `baja_clientes_log` VALUES (6,50505050,'mati','vanarelli','lalala','mati@vanarelli.com',123123123,'eliminado','root@localhost','2023-07-22','14:02:30');
 /*!40000 ALTER TABLE `baja_clientes_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,6 +99,22 @@ LOCK TABLES `Clientes` WRITE;
 INSERT INTO `Clientes` VALUES (1,10833170,'Carlos','Piacuadio','Bucarelli 123','carlos@piacuadio.net',155112345),(2,10123040,'Maria','Carla','Av Correa 456','maria@carla.com',15511235),(3,34131333,'Juan','Perez','Av Lavalle 1012','juan@perez.net',123444121),(4,25666928,'Fernando','Ibañez','Echeverria 3350','fibañez@aol.net',12981344),(5,40555121,'Ricardo','Gomez','Cerrito 313','ricardogomez@gmail.com',41511151);
 /*!40000 ALTER TABLE `Clientes` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `t_baja_clientes` BEFORE DELETE ON `clientes` FOR EACH ROW INSERT INTO baja_clientes_log(id, dni, nombre, apellido, direccion, mail, telefono, accion, usuario_sistema, fecha_log, hora_log)
+VALUES (old.id, old.dni, old.nombre, old.apellido, old.direccion, old.mail, old.telefono, 'eliminado', system_user(), now(), curtime()) */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Temporary view structure for view `clientes_por_orden_de_compra`
@@ -186,9 +201,25 @@ CREATE TABLE `Orden_de_compra` (
 
 LOCK TABLES `Orden_de_compra` WRITE;
 /*!40000 ALTER TABLE `Orden_de_compra` DISABLE KEYS */;
-INSERT INTO `Orden_de_compra` VALUES (1,'2023-06-01',4,1,2),(2,'2023-06-02',5,1,2),(3,'2023-06-02',10,2,2),(4,'2023-06-04',3,3,3),(5,'2023-06-04',12,3,3),(6,'2023-06-04',5,3,3),(7,'2023-06-06',8,5,1),(8,'2023-06-06',3,4,1),(9,'2023-06-10',3,4,2),(10,'2023-06-10',2,4,2),(12,'2023-10-10',3,1,2);
+INSERT INTO `Orden_de_compra` VALUES (1,'2023-06-01',4,1,2),(2,'2023-06-02',5,1,2),(3,'2023-06-02',10,2,2),(4,'2023-06-04',3,3,3),(5,'2023-06-04',12,3,3),(6,'2023-06-04',5,3,3),(7,'2023-06-06',8,5,1),(8,'2023-06-06',3,4,1),(9,'2023-06-10',3,4,2),(10,'2023-06-10',2,4,2);
 /*!40000 ALTER TABLE `Orden_de_compra` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `t_orden_de_compra` AFTER INSERT ON `orden_de_compra` FOR EACH ROW INSERT INTO orden_de_compra_log(nro_oc, fecha, cantidad, id_cliente, id_proveedor, accion, usuario_sistema, fecha_log, hora_log)
+VALUES (new.nro_oc, new.fecha, new.cantidad, new.id_cliente, new.id_proveedor,'nueva oc', system_user(), now(), curdate()) */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Temporary view structure for view `orden_de_compra_junio_2023`
@@ -670,4 +701,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-22 15:26:08
+-- Dump completed on 2023-07-22 15:31:15

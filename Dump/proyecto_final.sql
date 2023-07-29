@@ -87,7 +87,7 @@ CREATE TABLE `Clientes` (
   `mail` varchar(50) NOT NULL,
   `telefono` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `Clientes` (
 
 LOCK TABLES `Clientes` WRITE;
 /*!40000 ALTER TABLE `Clientes` DISABLE KEYS */;
-INSERT INTO `Clientes` VALUES (1,10833170,'Carlos','Piacuadio','Bucarelli 123','carlos@piacuadio.net',155112345),(2,10123040,'Maria','Carla','Av Correa 456','maria@carla.com',15511235),(3,34131333,'Juan','Perez','Av Lavalle 1012','juan@perez.net',123444121),(4,25666928,'Fernando','Ibañez','Echeverria 3350','fibañez@aol.net',12981344),(5,40555121,'Ricardo','Gomez','Cerrito 313','ricardogomez@gmail.com',41511151);
+INSERT INTO `Clientes` VALUES (1,10833170,'Carlos','Piacuadio','Bucarelli 123','carlos@piacuadio.net',155112345),(2,10123040,'Maria','Carla','Av Correa 456','maria@carla.com',15511235),(3,34131333,'Juan','Perez','Av Lavalle 1012','juan@perez.net',123444121),(4,25666928,'Fernando','Ibañez','Echeverria 3350','fibañez@aol.net',12981344),(5,40555121,'Ricardo','Gomez','Cerrito 313','ricardogomez@gmail.com',41511151),(6,10883170,'Carlos','Villagran','Santa Cruz 655, piso 2','kiko@hotmail.com',1551219876),(7,8345643,'Ramon','Valdes','Casa nro 7','donramon@gmail.com',1545332145),(8,17686091,'Florinda','Meza','Vecindad, casa nro 2','florinda@yahoo.com',1551998446),(9,5345677,'Edgar','Vivar','Calle 12 casa 4','barriga@gmail.com',1555556512),(10,83334512,'Roberto','Gomez','La vecindad, nro 8','elchavo@gmail.com',1244144440),(11,4895559,'Maria Antonieta','De las Nieves','Casa nro 7','chilindrina@hotmail.com',1234444412),(12,234441341,'Matias','Martin','Calle Las palmas 1244','matiasmartin@gmail.com',1521334886),(13,10999413,'Diego','Torres','Gorostiaga 1333 piso 2','dieguito@lastorres.com',1444451233);
 /*!40000 ALTER TABLE `Clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -443,7 +443,7 @@ CREATE TABLE `Ventas` (
 
 LOCK TABLES `Ventas` WRITE;
 /*!40000 ALTER TABLE `Ventas` DISABLE KEYS */;
-INSERT INTO `Ventas` VALUES (1,'2023-06-01',1,0,0,1),(2,'2023-06-02',1,0,0,2),(3,'2023-06-02',2,0,0,3),(4,'2023-06-04',3,0,0,4),(5,'2023-06-04',3,0,0,5),(6,'2023-06-04',3,0,0,6),(7,'2023-06-06',5,0,0,7),(8,'2023-06-06',4,0,0,8),(9,'2023-06-10',4,0,0,9),(10,'2023-06-10',4,0,0,10);
+INSERT INTO `Ventas` VALUES (1,'2023-06-01',1,0,0,1),(2,'2023-06-02',1,0,0,2),(3,'2023-06-02',2,0,0,3),(4,'2023-06-04',3,0,0,4),(5,'2023-06-04',3,0,0,5),(6,'2023-06-04',3,0,0,6),(7,'2023-06-06',5,0,0,7),(8,'2023-06-06',4,0,0,8),(9,'2023-06-10',4,0,0,9),(10,'2023-07-07',1,0,143,2);
 /*!40000 ALTER TABLE `Ventas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -701,4 +701,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-22 15:31:15
+-- Dump completed on 2023-07-29 16:01:01

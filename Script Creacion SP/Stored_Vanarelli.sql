@@ -22,10 +22,10 @@ call ordenar_tabla_clientes('apellido', 'DESC');
 /* Creacion de SP para agregar registros nuevos a la tabla Clientes (siempre y cuando no existan) */
 
 DELIMITER $$
-CREATE PROCEDURE crear_nuevo_cliente(IN p_id INT, IN p_dni INT, IN p_nombre VARCHAR(50), IN p_apellido VARCHAR(50), IN p_direccion VARCHAR(100), IN p_mail VARCHAR(50), in p_telefono INT)
+CREATE PROCEDURE crear_nuevo_cliente(IN p_id INT, IN p_dni INT, IN p_nombre VARCHAR(50), IN p_apellido VARCHAR(50), IN p_direccion VARCHAR(100), IN p_id_provincia INT, IN p_mail VARCHAR(50), in p_telefono INT)
 BEGIN
     IF NOT EXISTS (SELECT * FROM clientes WHERE id = p_id OR dni = p_dni) THEN
-        INSERT INTO clientes (id, dni, nombre, apellido, direccion, mail, telefono) VALUES (p_id, p_dni, p_nombre, p_apellido, p_direccion, p_mail, p_telefono);
+        INSERT INTO clientes (id, dni, nombre, apellido, direccion, id_provincia, mail, telefono) VALUES (p_id, p_dni, p_nombre, p_apellido, p_direccion, p_id_provincia, p_mail, p_telefono);
         SELECT 'Registro creado exitosamente.' AS mensaje;
     ELSE
         SELECT 'El registro ya existe en la tabla.' AS mensaje;
@@ -40,7 +40,7 @@ Si el campo ID o el campo DNI ya existe en la tabla, el SP devolvera el mensaje 
 Si tanto el ID como el DNI no existen en la tabla, el SP devolvera el mensaje de registro creado.
 
 Ejemplo con ID repetido: */
-call crear_nuevo_cliente(2, 34309425, 'raul', 'alfonsin', 'ejemplo', 'a@b.com', 1112312);
+call crear_nuevo_cliente(2, 34309425, 'raul', 'alfonsin', 'ejemplo', 1, 'a@b.com', 1112312);
 
 /* Ejemplo con nuevos datos: */
-call crear_nuevo_cliente(7, 34309425, 'matias', 'perez', 'loyola 424', 'matias@gmail.com', 1123445512); 
+call crear_nuevo_cliente(30, 34309425, 'matias', 'perez', 'loyola 424', 3, 'matias@gmail.com', 1123445512); 

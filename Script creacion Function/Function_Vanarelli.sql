@@ -11,7 +11,6 @@ BEGIN
     RETURN nombre_y_apellido;
 END$$
 DELIMITER ;
-drop function obtener_datos;
 
 /* Ejemplo de llamado a la funcion */
 
@@ -21,19 +20,15 @@ select obtener_datos(1) AS 'Nombre y Apellido';
 pasando como parametro una orden de compra */
 
 DELIMITER $$
-CREATE FUNCTION valor_venta_x_oc(p_nro_oc INT)
+CREATE FUNCTION stock_x_producto(p_id_prod INT)
 RETURNS FLOAT
 NO SQL
 BEGIN
-    DECLARE total FLOAT;
-    SET total = (select cantidad FROM orden_de_compra oc WHERE oc.nro_oc = p_nro_oc);
-    SET total = ROUND(total * (select precio_venta FROM ventas_detalle vd WHERE vd.nro_oc_referido = p_nro_oc), 2);
+    DECLARE total INT;
+    SET total = (select stock FROM productos prod WHERE prod.id = p_id_prod);
     RETURN total;
 END$$
 DELIMITER ;
 
 /* Ejemplo de llamado a la funcion */
-select valor_venta_x_oc(1) AS 'Valor de Venta Total';
-
-
-
+select stock_x_producto(2) AS 'Stock total';
